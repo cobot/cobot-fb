@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>cobot fb</title>
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', 'mustache', 'application', 'char-set' => 'utf-8' %>
+  <%= stylesheet_link_tag :application %>
+</head>
+<body>
+  <div id="site-wrapper">
+    <div id="main-wrapper" class="clearfix">
+      <div class="container">
+        <div class="main">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

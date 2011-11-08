@@ -1,0 +1,31 @@
+
+<ul id="plans">
+  <li class="plan">
+    <h3 class="plan-name">{{name}}</h3>
+    <p class="plan-description">
+      {{description}}
+    </p>
+
+    {{#time_passes}}
+      {{#included_per_timespan}}
+      <p class="sessions">
+        {{included_per_timespan}} sessions included per {{included_timespan}}.<br />
+        <!-- Sessions last from {{timespans}} !-->
+      </p>
+      {{/included_per_timespan}}
+    {{/time_passes}}
+
+    {{#day_pass_price}}
+      <p class="extra_price">{{day_pass_price}} {{currency}} for a day pass</p>
+    {{/day_pass_price}}
+
+    {{#cycle_costs}}
+      <p class="price">{{price_per_cycle}} {{currency}} for {{cycle_duration}} Month</p>
+    {{/cycle_costs}}
+
+    <a class="plan-link" href="{{url}}">Sign Up</a>
+  </li>
+  <script type="text/javascript" charset="utf-8">
+    cobotFb(<%= @plans_json %>);
+  </script>
+</ul>
