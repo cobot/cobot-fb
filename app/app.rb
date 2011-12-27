@@ -60,7 +60,7 @@ class CobotFb < Padrino::Application
     
     def self.[](key)
       p @config
-      @config[key]
+      @config[key.to_s]
     end
   end
   
