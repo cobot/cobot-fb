@@ -1,6 +1,6 @@
 CobotFb.helpers do
   def auth
-    @auth ||= Koala::Facebook::OAuth.new(Config[:fb_app_id], Config[:fb_ab_key])
+    @auth ||= Koala::Facebook::OAuth.new(Config[:fb_app_id], Config[:fb_app_key])
   end
 
   def oauth_client

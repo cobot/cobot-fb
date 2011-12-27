@@ -16,16 +16,16 @@
     {{/time_passes}}
 
     {{#day_pass_price}}
-      <p class="extra_price">{{day_pass_price}} {{currency}} for a day pass</p>
+      <p class="extra_price">{{display_day_pass_price}} {{currency}} for a day pass</p>
     {{/day_pass_price}}
 
     {{#cycle_costs}}
-      <p class="price">{{price_per_cycle}} {{currency}} for {{cycle_duration}} Month</p>
+      <p class="price">{{display_price_per_cycle}} {{currency}} for {{cycle_duration}} Month</p>
     {{/cycle_costs}}
 
     <a class="plan-link" href="{{url}}">Sign Up</a>
   </li>
   <script type="text/javascript" charset="utf-8">
-    cobotFb(<%= @plans_json %>);
+    cobotFb(<%= @space_json %>, <%= @plans_json %>);
   </script>
 </ul>
