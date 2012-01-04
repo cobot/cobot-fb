@@ -59,7 +59,6 @@ class CobotFb < Padrino::Application
     @config = YAML.load(File.open(File.dirname(__FILE__) + "/../config/config.yml"))
     
     def self.[](key)
-      p @config
       @config[key.to_s]
     end
   end

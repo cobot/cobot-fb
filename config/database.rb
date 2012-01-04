@@ -35,14 +35,14 @@ ActiveRecord::Base.configurations[:development] = {
 ActiveRecord::Base.configurations[:test] = {
   :adapter  => 'postgresql',
   :encoding => 'utf8',
-  :database => 'cobot_fb_test.db'
+  :database => 'cobot_fb_test'
 }
 
 # Setup our logger
 ActiveRecord::Base.logger = logger
 
 # Include Active Record class name as root for JSON serialized output.
-ActiveRecord::Base.include_root_in_json = true
+ActiveRecord::Base.include_root_in_json = false
 
 # Store the full class name (including module namespace) in STI type column.
 ActiveRecord::Base.store_full_sti_class = true

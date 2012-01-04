@@ -2,10 +2,12 @@
 CobotFb.controller  do
 
   post '/' do
-    fb_page_id = auth.parse_signed_request(params[:signed_request])["page"]["id"]
+    signed_page_params = auth.parse_signed_request(params[:signed_request])["page"]
+    fb_page_id = signed_page_params["id"]
     session[:fb_page_id] = fb_page_id
     unless space = Space.find_by_fb_id(fb_page_id)
-      link_to('Get my membership plans on FB', '/space/new').to_s
+      @admin = signed_page_params["admin"]
+      render "space/new"
     else
       redirect "/"
     end
@@ -24,6 +26,6 @@ CobotFb.controller  do
     end
     @space_json = oauth_session.get("http://www.cobot.me/api/spaces/#{space.space_id}").body
     @plans_json = oauth_session.get("http://#{space.space_id}.cobot.me/api/plans" ).body
-    render 'spaces/space'
+    render 'space/plans'
   end
 end

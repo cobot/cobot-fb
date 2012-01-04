@@ -6,6 +6,14 @@
       {{description}}
     </p>
 
+    {{#cycle_costs}}
+      <p class="price">{{display_price_per_cycle}} {{currency}} for {{cycle_duration}} Month</p>
+    {{/cycle_costs}}
+
+    {{#day_pass_price}}
+      <p class="extra_price">{{display_day_pass_price}} {{currency}} for a day pass</p>
+    {{/day_pass_price}}
+
     {{#time_passes}}
       {{#included_per_timespan}}
       <p class="sessions">
@@ -14,14 +22,6 @@
       </p>
       {{/included_per_timespan}}
     {{/time_passes}}
-
-    {{#day_pass_price}}
-      <p class="extra_price">{{display_day_pass_price}} {{currency}} for a day pass</p>
-    {{/day_pass_price}}
-
-    {{#cycle_costs}}
-      <p class="price">{{display_price_per_cycle}} {{currency}} for {{cycle_duration}} Month</p>
-    {{/cycle_costs}}
 
     <a class="plan-link" href="{{url}}">Sign Up</a>
   </li>
