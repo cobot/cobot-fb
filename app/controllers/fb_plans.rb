@@ -5,11 +5,11 @@ CobotFb.controller  do
     signed_page_params = auth.parse_signed_request(params[:signed_request])["page"]
     fb_page_id = signed_page_params["id"]
     session[:fb_page_id] = fb_page_id
-    unless space = Space.find_by_fb_id(fb_page_id)
+    if Space.find_by_fb_id(fb_page_id)
+      redirect "/"
+    else
       @admin = signed_page_params["admin"]
       render "space/new"
-    else
-      redirect "/"
     end
   end
 

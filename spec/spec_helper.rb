@@ -1,13 +1,33 @@
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 require 'capybara/rspec'
+require 'database_cleaner'
+require 'webmock/rspec'
+# in spec/support/ and its subdirectories.
+Dir[File.dirname(__FILE__) + ("/support/**/*.rb")].each {|f| require f}
 
 Capybara.app = CobotFb
 
+
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
+
 def app
-  ##
-  # You can handle all padrino applications using instead:
-  #   Padrino.application
   CobotFb.tap { |app|  }
 end
 

@@ -1,5 +1,6 @@
 <% if @admin %>
-  You have to authorize with cobot by following the link below.
+  <%= params[:signed_request] %>
+  You have to authorize with cobot by following the link below.<br/>
   <%= link_to 'Show plans on Facebook', '/auth' %>
 <% else %>
   Sorry, the page wasn't setup correctly. The page admin has to authorize it with cobot once.

@@ -18,7 +18,10 @@ gem 'pg'
 # Test requirements
 gem 'rspec', :group => "test"
 gem 'rack-test', :require => "rack/test", :group => "test"
-gem 'capybara'
+gem 'capybara', group: :test
+gem 'launchy', group: :test
+gem 'database_cleaner', group: :test
+gem 'webmock', group: :test
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.5'

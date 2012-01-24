@@ -10,6 +10,7 @@ Bundler.require(:default, PADRINO_ENV)
 ##
 # Enable devel logging
 Padrino::Logger::Config[:development] = { :log_level => :debug, :stream => :to_file }
+Padrino::Logger::Config[:test] = { :log_level => :debug, :stream => :to_file }
 #
 # Padrino::Logger::Config[:development] = { :log_level => :devel, :stream => :stdout }
 # Padrino::Logger.log_static = true
