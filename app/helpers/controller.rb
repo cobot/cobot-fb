@@ -1,11 +1,11 @@
 CobotFb.helpers do
   def auth
-    @auth ||= Koala::Facebook::OAuth.new(Config[:fb_app_id], Config[:fb_app_key])
+    @auth ||= Koala::Facebook::OAuth.new(CobotFb::Config[:fb_app_id], CobotFb::Config[:fb_app_key])
   end
 
   def oauth_client
-    OAuth2::Client.new(Config[:cobot_app_id],
-      Config[:cobot_app_key],
+    OAuth2::Client.new(CobotFb::Config[:cobot_app_id],
+      CobotFb::Config[:cobot_app_key],
       site: 'https://cobot.me',
       token_url: '/oauth2/access_token',
       authorize_url: '/oauth2/authorize',
