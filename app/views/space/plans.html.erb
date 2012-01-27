@@ -1,5 +1,4 @@
-
-<ul id="plans">
+<div id="planTemplate" style="display:none">
   <li class="plan">
     <h3 class="plan-name">{{name}}</h3>
     <p class="plan-description">
@@ -23,9 +22,16 @@
       {{/included_per_timespan}}
     {{/time_passes}}
 
-    <a class="plan-link" href="{{url}}">Sign Up</a>
+    {{=[% %]=}}
+      <a class="plan-link" href="[%url%]" target="_blank">Sign Up</a>
+    [%={{ }}=%]
   </li>
-  <script type="text/javascript" charset="utf-8">
-    cobotFb(<%= @space_json %>, <%= @plans_json %>);
-  </script>
+</div>
+
+
+<ul id="plans">
 </ul>
+<script type="text/javascript" charset="utf-8">
+  cobotFb(<%= @space_json %>, <%= @plans_json %>);
+</script>
+

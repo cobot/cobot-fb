@@ -1,7 +1,6 @@
 var cobotFb = function(space, plans){
   var $plans = $('#plans'),
-  planTemplate = $plans.find(".plan").html();
-  $plans.empty();
+  planTemplate = $('#planTemplate').html();
 
   var display_gross = function(){
     return space.display_price == "gross";
@@ -19,7 +18,8 @@ var cobotFb = function(space, plans){
       return price;
     }
   };
-
+  console.log(this, planTemplate);
+  
   $.each(plans, function(){
     // no hidden plans
     if(!this.hidden){
@@ -28,7 +28,8 @@ var cobotFb = function(space, plans){
       };
       this.display_day_pass_price = price_to_display_price(this.day_pass_price);
       this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
-      planHtml = Mustache.to_html(planTemplate, this);
+      this.url = space.url + '/membership/new/?plan_id='+ this.id;
+      var planHtml = Mustache.to_html(planTemplate, this);
       $plans.append(planHtml);
     }
   });
