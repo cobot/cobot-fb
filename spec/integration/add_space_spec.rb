@@ -53,8 +53,7 @@ describe "user opens app the first time", :type => :request do
       stub_plans_response_for_space('test', [@plan_hash])
 
       fake_fb_post
-      save_and_open_page
-      page.should_not have_content 'Hidden Plan'
+      page.should_not have_content 'Hidden Plan</h3>'
     end
   end
 end
