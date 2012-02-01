@@ -4,3 +4,7 @@ rvm:
 script: bundle exec rspec
 notifications:
   email: false
+env: DB=postgres
+before_script:
+  - "cp app/config/database.yml.example app/config/database.yml"
+  - "psql -c 'create database myapp_test;' -U postgres"
