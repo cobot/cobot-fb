@@ -16,7 +16,7 @@ CobotFb.controller  do
 
   get '/' do
     if params[:code] #we just authorized us
-      oauth_session = oauth_client.auth_code.get_token(params[:code], :redirect_uri => 'https://cobot-fb.dev/')
+      oauth_session = oauth_client.auth_code.get_token(params[:code], :redirect_uri => 'https://cobot-fb.herokuapp.com/')
       oauth_session.options[:header_format] = "OAuth %s" # WTF? Don't work otherwise.
       user_info = JSON.parse(oauth_session.get("http://www.cobot.me/api/user").body)
       space_id = get_space_id(user_info['admin_of'].first['space_link'])
