@@ -5,5 +5,5 @@ rerun.txt
 database.yml
 .bundle
 .rvmrc
-config/config.yml
 capybara-*
+.env

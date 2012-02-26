@@ -1,7 +1,7 @@
 source :rubygems
 
 # Server requirements (defaults to WEBrick)
-# gem 'thin'
+gem 'unicorn'
 # gem 'mongrel'
 
 # Project requirements
@@ -16,20 +16,20 @@ gem 'activerecord', :require => "active_record"
 gem 'pg'
 
 # Test requirements
-gem 'rspec', :group => "test"
-gem 'rack-test', :require => "rack/test", :group => "test"
-gem 'capybara', group: :test
-gem 'launchy', group: :test
-gem 'database_cleaner', group: :test
-gem 'webmock', group: :test
+group "test" do
+  gem 'rspec'
+  gem 'rack-test', :require => "rack/test"
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'webmock'
+end
+
+group "development" do
+  gem 'foreman'
+  gem 'heroku'
+end
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.5'
 
-# Or Padrino Edge
-# gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
-
-# Or Individual Gems
-# %w(core gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '0.10.5'
-# end

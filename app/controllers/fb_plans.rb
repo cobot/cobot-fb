@@ -1,6 +1,7 @@
 
 CobotFb.controller  do
 
+  # fb calling
   post '/' do
     signed_page_params = auth.parse_signed_request(params[:signed_request])["page"]
     fb_page_id = signed_page_params["id"]

@@ -56,7 +56,12 @@ class CobotFb < Padrino::Application
   #   end
   #
   class Config
-    @config = YAML.load(File.open(File.dirname(__FILE__) + "/../config/config.yml"))
+    @config = {
+      fb_app_id: ENV['FB_APP_ID'],
+      fb_app_key: ENV['FB_APP_KEY'],
+      cobot_app_id: ENV['COBOT_APP_ID'],
+      cobot_app_key: ENV['COBOT_APP_KEY']
+    }
     
     def self.[](key)
       @config[key.to_s]
