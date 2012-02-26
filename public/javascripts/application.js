@@ -1,7 +1,9 @@
 var cobotFb = function(space, plans){
   var $plans = $('#plans'),
   planTemplate = $('#planTemplate').html();
-
+  // welcome text
+  $('#welcome').html(Mustache.to_html($('#welcome').html(), space));
+  
   var display_gross = function(){
     return space.display_price == "gross";
   };
