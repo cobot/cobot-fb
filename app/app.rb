@@ -64,7 +64,7 @@ class CobotFb < Padrino::Application
     }
     
     def self.[](key)
-      @config[key.to_s]
+      @config[key.to_sym]
     end
   end
   
