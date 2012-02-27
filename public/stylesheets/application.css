@@ -3,10 +3,16 @@ body {
   font-size: 11px;
 }
 
-h3 {
+ul {
+  list-style: none;
+}
+
+h2 {
   margin-top: 35px;
   margin-bottom: 11px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: -0.03em;
 }
 
 a {
@@ -21,6 +27,23 @@ a {
 
 a:hover {
   cursor: pointer;
+}
+
+#page_link{
+  float: right;
+}
+#page_link a{
+  color: #3B5998;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #ffffff;
+  font-weight: normal;
+  padding: 0px;
+}
+
+#page_link a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .sessions {
