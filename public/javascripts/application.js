@@ -30,7 +30,7 @@ var cobotFb = function(space, plans){
       };
       this.display_day_pass_price = price_to_display_price(this.day_pass_price);
       this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
-      this.url = space.url + '/membership_application/new?plan_id='+ this.id;
+      this.url = space.url + '/users/new?plan_id='+ this.id;
       var planHtml = Mustache.to_html(planTemplate, this);
       $plans.append(planHtml);
     }
