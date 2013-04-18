@@ -6,7 +6,9 @@ window.fbAsyncInit = function() {
     xfbml      : false
   });
 
-  // Additional initialization code such as adding Event Listeners goes here
+  $('#plans').bind('planAdded', function(){
+    FB.Canvas.setSize();
+  });
 };
 
 // Load the SDK asynchronously

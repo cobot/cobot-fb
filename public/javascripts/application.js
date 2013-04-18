@@ -20,8 +20,7 @@ var cobotFb = function(space, plans){
       return price;
     }
   };
-  console.log(this, planTemplate);
-  
+
   $.each(plans, function(){
     // no hidden plans
     if(!this.hidden){
@@ -33,6 +32,7 @@ var cobotFb = function(space, plans){
       this.url = space.url + '/users/new?plan_id='+ this.id;
       var planHtml = Mustache.to_html(planTemplate, this);
       $plans.append(planHtml);
+      $plans.trigger('planAdded');
     }
   });
   
