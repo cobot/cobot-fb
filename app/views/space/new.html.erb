@@ -1,7 +1,13 @@
-<% if @admin %>
-  You have to authorize with cobot by following the link below.<br/>
-  <br/>
-  <%= link_to 'Show plans on Facebook', '/auth' %>
-<% else %>
-  Sorry, the page wasn't setup correctly. The page admin has to authorize it with cobot once.
-<% end %>
+<div id="spaceTemplate" style="display:none">
+  <li class="space">
+    {{=[% %]=}}
+      <a class="space-name" href="[%space_url%]" target="_blank">[%space_name%]</a>
+    [%={{ }}=%]
+    <a class="add-space-link" rel="{{space_id}}">Add Plans to fb</a>
+  </li>
+</div>
+<p>Here you have all the spaces where you can add the Plans to your Facebook Website.</p>
+<ul id="spaces"></ul>
+<script type="text/javascript" charset="utf-8">
+  cobotSpaces(<%= @spaces_json %>);
+</script>
