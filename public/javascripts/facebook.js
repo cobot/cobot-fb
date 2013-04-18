@@ -5,10 +5,7 @@ window.fbAsyncInit = function() {
     status     : false,
     xfbml      : false
   });
-
-  $('#plans').bind('planAdded', function(){
-    FB.Canvas.setSize();
-  });
+  FB.Canvas.setSize();
 };
 
 // Load the SDK asynchronously
