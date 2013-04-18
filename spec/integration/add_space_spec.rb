@@ -15,7 +15,7 @@ describe "user opens app the first time", :type => :request do
 
       click_link 'Show plans on Facebook'
 
-      URI.parse(current_url).to_s.should =~ %r{https://cobot.me/oauth2/authorize}
+      URI.parse(current_url).to_s.should =~ %r{https://cobot.me/oauth/authorize}
     end
 
     it "it displays apology to visitors" do

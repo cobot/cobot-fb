@@ -7,8 +7,592 @@
   <body>
     <div id='fb-root'></div>
     <script src='http://connect.facebook.net/en_US/all.js'></script>
-    <p><a onclick='addToPage(); return false;'>Add to Page</a></p>
-    <p id='msg'></p>
+    <style>
+      html {margin:0;padding:0;border:0;}
+      body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+      article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section {display:block;}
+      body {line-height:1.5;background:white;}
+      table {border-collapse:separate;border-spacing:0;}
+      caption, th, td {text-align:left;font-weight:normal;float:none !important;}
+      table, th, td {vertical-align:middle;}
+      blockquote:before, blockquote:after, q:before, q:after {content:'';}
+      blockquote, q {quotes:"" "";}
+      a img {border:none;}
+      :focus {outline:0;}
+
+      /* typography.css */
+      html {font-size:100.01%;}
+      body {
+        font-size: 75%;
+        background: url(../images/bg_gradient.png), url(../images/bg.png);
+        background-repeat: repeat-x, repeat;
+        margin:0px;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+        color: #00213B;
+        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+      }
+
+      em, cite, i {
+        font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, Tahoma, sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
+      h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
+      h2 {font-size:2em;margin-bottom:0.75em;}
+      h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
+      h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
+      h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+      h6 {font-size:1em;font-weight:bold;}
+      h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+      p {margin:0 0 1.5em;}
+      a:focus, a:hover {color:#09f;}
+      a {color:#06c;text-decoration:underline;}
+      blockquote {margin:1.5em;color:#666;font-style:italic;}
+      strong, dfn {font-weight:bold;}
+      em, dfn {font-style:italic;}
+      sup, sub {line-height:0;}
+      abbr, acronym {border-bottom:1px dotted #666;}
+      address {margin:0 0 1.5em;font-style:italic;}
+      del {color:#666;}
+      pre {margin:1.5em 0;white-space:pre;}
+      pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
+      li ul, li ol {margin:0;}
+      ul, ol {margin:0 1.5em 1.5em 0;padding-left:1.5em;}
+      ul {list-style-type:disc;}
+      ol {list-style-type:decimal;}
+      dl {margin:0 0 1.5em 0;}
+      dl dt {font-weight:bold;}
+      dd {margin-left:1.5em;}
+      table {margin-bottom:1.4em;width:100%;}
+      th {font-weight:bold;}
+      thead th {background:#c3d9ff;}
+      th, td, caption {padding:4px 10px 4px 5px;}
+      tbody tr:nth-child(even) td, tbody tr.even td {background:#e5ecf9;}
+      tfoot {font-style:italic;}
+      caption {background:#eee;}
+
+      .container {
+        margin: auto;
+        width: 960px;
+      }
+
+      .logo {
+        margin: 1.5em 0 1.5em 0;
+        font-weight: 700;
+        font-size: 1.5em;
+        text-shadow: 0px 1px 1px #fff;
+      }
+
+      .logo a,
+      .logo a:link,
+      .logo a:visited {
+        display: block;
+        width: 500px;
+        height: 64px;
+        background: transparent no-repeat 0 0;
+        font-size: 2.5em;
+      }
+
+      .logo a:hover,
+      .logo a:active,
+      .logo a:focus {
+        outline: none;
+        background-position: 0 -65px;
+      }
+
+
+      /* Links */
+      a,a:link,a:visited{color:#429ACC;text-decoration:none;}
+      a:hover,
+      a:active,
+      a:focus{color:#0B5C7B;}
+      a.highlight,
+      a.highlight:link,
+      a.highlight:visited{color:#FF1D4E;background:none;}
+      a.highlight:hover,
+      a.highlight:active,
+      a.highlight:focus{color:#CE1940;}
+      a.invert,
+      a.invert:link,
+      a.invert:visited{color:#ffa1b5;}
+      a.invert:hover,
+      a.invert:active,
+      a.invert:focus{color:#FFD9E1;}
+
+      nav {
+        font-size: 0.8333em;
+        line-height: 1.5;
+        padding: 0;
+        line-height: 1.5em;
+        background: #FFF;
+        overflow: hidden;
+
+        color: #D0CABA;
+
+        -moz-border-radius: 0 0 1em 1em;
+        -webkit-border-radius: 0 0 1em 1em;
+        border-radius: 0 0 1em 1em;
+
+        -moz-box-shadow: inset 0px 0px 1px #FFF;
+        -webkit-box-shadow: inset 0px 0px 1px #FFF;
+        box-shadow: inset 0px 0px 1px #FFF;
+      }
+
+      nav a,
+      nav a:link,
+      nav a:visited {
+        display: block;
+        float: left;
+        padding: 0.5em 1em;
+        background: #FFF;
+      }
+
+      nav a:hover,
+      nav a:active,
+      nav a:focus {
+        background: #0B5C7B;
+        color: #FFF;
+      }
+
+      nav a.first {
+        -moz-border-radius: 0 0 0 1em;
+        -webkit-border-radius: 0 0 0 1em;
+        border-radius: 0 0 0 1em;
+      }
+
+      nav a.last {
+        -moz-border-radius: 0 0 1em 0;
+        -webkit-border-radius: 0 0 1em 0;
+        border-radius: 0 0 1em 0;
+      }
+
+      .flash.notice {
+        color: #756800;
+        background: #FFED66;
+        padding: 5px;
+        position: absolute;
+        top: 80px;
+        -webkit-border-radius: 0.3em;
+        -moz-border-radius: 0.3em;
+        border-radius: 0.3em;
+      }
+
+      .flash.success {
+        color: darkgreen;
+        background: #CFB;
+        padding: 5px;
+        position: absolute;
+        top: 80px;
+        -webkit-border-radius: 0.3em;
+        -moz-border-radius: 0.3em;
+        border-radius: 0.3em;
+      }
+
+      .flash.error {
+        color: darkred;
+        background: lightpink;
+        padding: 5px;
+        position: absolute;
+        top: 80px;
+        -webkit-border-radius: 0.3em;
+        -moz-border-radius: 0.3em;
+        border-radius: 0.3em;
+      }
+
+      .logo {
+        float: left;
+      }
+
+      .header {
+        float: right;
+        margin-bottom: 2em;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.3em;
+      }
+
+      .path {
+        margin: 0 0 15px 0;
+      }
+
+      .profile_image {
+        float: left;
+      }
+
+      .profile_info {
+        float: right;
+        width: 75%;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+      .main {
+        clear: both;
+        background: #fff;
+        padding: 20px;
+        border-radius: 0.5em;
+        -webkit-border-radius: 0.5em;
+        -moz-border-radius: 0.5em;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .list {
+        width: 100%;
+        text-align: left;
+        border-spacing: 0px;
+      }
+
+      img.member {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .list td {
+        padding: 2px 2px;
+        border-bottom: 1px #0b5c7b solid;
+        border-right: 1px #0b5c7b solid;
+      }
+
+      .list tr td:first-child {
+        border-left: 1px #0b5c7b solid;
+      }
+
+      .list td a {
+        text-decoration: none;
+      }
+
+      .list thead th {
+        padding: 5px 1px;
+        background: #0b5c7b;
+        color: #fff;
+        line-height: 1.5;
+      }
+
+      .footer {
+        color: #AAA;
+        margin-top: 50px;
+        padding-top: 10px;
+        margin-bottom: 0;
+        border-top: 1px solid #eee;
+      }
+
+      .footer a, .footer a:visited {
+        color: #999;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+
+      #search {
+        border-radius: 0.5em;
+        -webkit-border-radius: 0.5em;
+        -moz-border-radius: 0.5em;
+        border: 1px #ddd solid;
+        font-size: 1em;
+        margin-bottom: 20px;
+      }
+
+      form.simple_form {
+        margin-bottom: 1em;
+      }
+
+      div.input {
+        margin-bottom: 1em;
+      }
+
+      form label {
+        display: inline-block;
+        width: 170px;
+      }
+
+      form textarea {
+        height: 100px;
+        width: 300px;
+      }
+
+      form input.string {
+        width: 300px;
+      }
+
+      .embed {
+      	width:99.5%;
+      	height:40px;
+      	overflow:hidden;
+      }
+
+      .screen {
+        float: left;
+        width: 270px;
+        margin-right: 40px;
+
+        color: #666;
+      }
+
+      .screen.last {
+        margin-right: 0px;
+      }
+
+      .screen img {
+        border: 1px solid #AAA;
+        margin-bottom: .5em;
+      }
+
+
+      .clear {
+        clear: both;
+      }
+
+      a.btn {
+        text-decoration: none;
+      }
+
+      a.btn, button.btn, input.btn { 
+        display: inline-block;
+        width: auto;
+        position: relative;
+        border: 0; 
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        overflow: visible; /* removes extra side padding in IE */
+        font-size: 1em;
+        line-height: 1em;
+        cursor: pointer;
+        vertical-align: bottom;
+      }
+
+      a.btn span:focus, 
+      button.btn span:focus, 
+      a.btn:focus, 
+      button.btn:focus, 
+      input.btn:focus { 
+        outline: none;  
+      }
+
+      button.btn::-moz-focus-inner {
+        padding: 0;
+        border: none;  /* overrides extra padding in Firefox */
+      }
+
+      a.btn.span,
+      button.btn span { 
+        position: relative;
+        display: inline-block; 
+        white-space: nowrap;  
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        /* Safari and Google Chrome only - fix margins */
+        button.btn span {
+          margin-top: -1px;
+        }
+      }
+
+      /* button styles, not to be changed */   
+      input.btn,
+      a.btn,
+      button.btn,
+      a.btn span,
+      button.btn span { 
+        text-align: center; 
+        background-repeat: no-repeat;
+      }
+
+      input.btn,
+      a.btn,
+      button.btn { 
+        text-align: center; 
+      }
+
+      a.btn span,
+      button.btn span {
+        display: inline-block;
+      }
+
+      a.btn:focus,
+      button.btn:focus,  
+      a.btn:hover,
+      button.btn:hover { 
+        background-position: 100% -150px; 
+      }
+
+      a.btn:focus span,
+      button.btn:focus span,  
+      a.btn:hover span,
+      button.btn:hover span {
+        background-position: 0 -50px;
+      }
+
+      /* custom btn */
+
+      button.btn,
+      .btn,
+      input.btn,
+      a.btn, .notice a.btn {
+        font-size: 1em;
+        line-height: 1.5;
+        margin-right: 5px;
+        padding: 0.5em .75em;
+        text-decoration: none;
+        color: #F6F6F4;
+        border: none;
+        cursor: pointer;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        text-shadow: 0px -0.08333em 0px #000;
+        text-shadow: 0px -0.08333em 0px rgba(0,0,0,.5);  
+
+        -moz-box-shadow: inset 0 -12px 15px rgba(0, 0, 60, 0.2);
+        -webkit-box-shadow: inset 0 -12px 15px rgba(0, 0, 60, 0.2);
+        box-shadow: inset 0 -12px 15px rgba(0, 0, 60, 0.2);
+
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+      }
+
+      /* normal blue buttons */
+      .action,
+      .btn {
+        background-color: #429ACC;
+      }
+
+      /* highlighted btns */
+      .btn_bob,
+      .btn_highlight,
+      a.btn_highlight {
+        background-color: #FF1D4E;
+      }
+
+      /* cancel/delete btns */
+      .btn.orange,
+      a.btn.orange,
+      .btn_cancel,
+      a.btn_cancel {
+        background-color: #FF6435;
+      }
+
+      /* hovers */
+
+      .btn:hover,
+      .btn:focus,
+      .action:focus,
+      .action:hover {
+        background-color: #0B5C7B;
+        color: #FFF;
+      }
+
+      .btn_bob:hover,
+      .btn_bob:focus,
+      .btn_highlight:hover,
+      .btn_highlight:focus {
+        background-color: #CE1940;
+      }
+
+      .btn.orange:hover,
+      a.btn.orange:hover,
+      .btn.orange:focus,
+      a.btn.orange:focus,
+      .btn_cancel:hover,
+      a.btn_cancel:hover,
+      .btn_cancel:focus,
+      a.btn_cancel:focus {
+        background-color: #EF3800;
+      }
+
+      /*
+        Place all the styles related to the matching controller here.
+        They will automatically be included in application.css.
+      */
+
+
+      ul.subdomains {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .subdomains > li {
+        padding: 0 0 0.416666em;
+        margin-bottom: 1em;
+        border-bottom: 1px dotted #B9B997;
+      }
+
+      .subdomains > li p:last-child {
+        margin-bottom: .5em;
+      }
+
+      /*
+        Place all the styles related to the matching controller here.
+        They will automatically be included in application.css.
+      */
+
+
+      .field {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+
+      a.btn {
+        margin-top: 1em;
+      }
+
+      .clear a {
+        display: inline-block;
+        margin-top: 2em;
+      }
+    </style>
+   
+    <body>
+
+    <div class="container">
+      <h1 class="logo">
+          <a onclick='addToPage(); return false;'>Cobot Plans for Facebook</a>
+      </h1>
+
+      <div class="main">
+        <p>
+      A service for administrators of <a href="http://www.cobot.me">cobot</a>
+      coworking spaces to manage automatic expiration of day passes.
+    </p>
+    <p class="center">
+      <p><a onclick='addToPage(); return false;'>Add Plans to Facbook</a></p>
+      <p id='msg'></p>
+    </p>
+    <p>
+      You need to have a cobot account and be a member or admin 
+      in a space there in order to setup this application.
+    </p>
+
+      </div>
+
+      <div class="footer">
+        <p class="left">
+          &copy; 2012 
+          <a href="http://upstre.am">Upstream - Agile GmbH</a>
+        </p>
+        <p class="right">
+          <a href="https://github.com/cobot/expiring_day_passes">This software is open source</a>.
+        </p>
+      </div>
+
+    </div>
+   
 
     <script> 
       FB.init({appId: "108253272618609", status: true, cookie: true});
@@ -19,16 +603,7 @@
             redirect_uri: 'https://cobot-fb.herokuapp.com/plans'
           };
 
-          FB.ui(obj, function(response) {
-            console.log(response);
-            if (response != null && response.tabs_added != null) {
-
-                $.each(response.tabs_added, function(pageid) {
-                      console.log(pageid);
-                      window.location.replace('https://facebook.com/' + pageid + 'sk?=108253272618609');
-                });
-            }
-        });
+          FB.ui(obj);
       }
     
     </script>

@@ -33,8 +33,10 @@ var cobotFb = function(space, plans){
       this.url = space.url + '/users/new?plan_id='+ this.id;
       var planHtml = Mustache.to_html(planTemplate, this);
       $plans.append(planHtml);
+      FB.Canvas.setSize();
     }
   });
+  
 };
 
 
