@@ -17,8 +17,11 @@
     };
     FB.ui(obj, function(response) {
       if (response != null && response.tabs_added != null) {
+        console.log(response);
         $.each(response.tabs_added, function(page_id) {
-          $.post('/spaces',{page_id: page_id, space_id: space_id});
+          $.post('/spaces',{page_id: page_id, space_id: space_id}, function(){
+            window.location.replace('https://www.facebook.com/pages/random/'+page_id+'?v=app_108253272618609');
+          });
         });
       }
     });
