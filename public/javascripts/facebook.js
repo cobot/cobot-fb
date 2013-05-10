@@ -20,7 +20,7 @@ function addToPage(space_id) {
       console.log(response);
       $.each(response.tabs_added, function(page_id) {
         $.post('/spaces',{page_id: page_id, space_id: space_id}, function(){
-          window.location.open('https://www.facebook.com/pages/random/'+page_id+'?v=app_108253272618609');
+          window.open('https://www.facebook.com/pages/random/'+page_id+'?v=app_108253272618609','_blank');
         });
       });
     }

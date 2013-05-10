@@ -1,7 +1,6 @@
 $(function(){
   $('.add-space-link').bind('click', function(){
     addToPage(this.rel);
-    console.log('click', this.rel);
     return(false);
   });
 });

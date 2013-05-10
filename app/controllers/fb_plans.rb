@@ -14,11 +14,11 @@ CobotFb.controller  do
   end
 
   get '/plans' do
-    layout :facebook 
+
     space = Space.find_by_fb_id! session[:fb_page_id]
     oauth_session = get_oauth_session(space.token)
     @space_json = oauth_session.get("http://www.cobot.me/api/spaces/#{space.space_id}").body
     @plans_json = oauth_session.get("http://#{space.space_id}.cobot.me/api/plans" ).body
-    render 'space/plans'
+    render 'space/plans', layout: :facebook
   end
 end
