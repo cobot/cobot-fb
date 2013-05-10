@@ -2,22 +2,18 @@
 <head>
   <title>cobot fb</title>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', 'mustache', 'pagedown.min', 'facebook', 'application', 'char-set' => 'utf-8' %>
-  <%= stylesheet_link_tag :app %>
+  <%= stylesheet_link_tag :fb %>
 </head>
 <body>
   <div id="fb-root"></div>
   <div id="site-wrapper">
     <div id="main-wrapper" class="clearfix">
-      <h1>Cobot Plans for Facebook Pages</h1>
       <div class="container">
         <div class="main">
           <%= yield %>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer container">
-    Copyright 2013 <a href="http://cobot.me">cobot.me</a>
   </div>
 </body>
 </html>

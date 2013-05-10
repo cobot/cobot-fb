@@ -1,13 +1,12 @@
 <div id="spaceTemplate" style="display:none">
   <li class="space">
-    {{=[% %]=}}
-      <a class="space-name" href="[%space_url%]" target="_blank">[%space_name%]</a>
-    [%={{ }}=%]
-    <a class="add-space-link" rel="{{space_id}}">Add Plans to fb</a>
+    <a class="space-name" href="{{space_link}}" target="_blank">{{space_name}}</a>
+    &nbsp;
+    <a class="add-space-link btn" rel="{{space_id}}">Add</a>
   </li>
 </div>
-<p>Here you have all the spaces where you can add the Plans to your Facebook Website.</p>
-<ul id="spaces"></ul>
+<p id="text">Here are all the spaces where you can put their plans on your Facebook page.</p>
+<ul id="spaces" class="cobot_list"></ul>
 <script type="text/javascript" charset="utf-8">
-  cobotSpaces(<%= @spaces_json %>);
+  CobotFb.renderSpaces(<%= @spaces_json %>);
 </script>
