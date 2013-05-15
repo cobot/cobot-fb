@@ -60,7 +60,7 @@ var CobotFb = {
         this.url = space.url + '/users/new?plan_id='+ this.id;
         var planHtml = Mustache.to_html(planTemplate, this);
         $plans.append(planHtml);
-        if(FB){
+        if(typeof yourvar != 'undefined'){
           FB.Canvas.setSize();
         }
       }
