@@ -1,12 +1,19 @@
 <div id="spaceTemplate" style="display:none">
-  <li class="space">
-    <a class="space-name" href="{{space_link}}" target="_blank">{{space_name}}</a>
-    &nbsp;
-    <a class="add-space-link btn" rel="{{space_id}}">Add</a>
-  </li>
+  <div class="row-fluid">
+    <div class="span4">
+      <a class="space-name" href="{{space_link}}" target="_blank">{{space_name}}</a>
+    </div>
+    <div class="span4">
+      <a class="add-space-link btn btn-small btn-primary" rel="{{space_id}}">Choose Facebook Page</a>
+    </div>
+    <div class="span4"></div>
+  </div>
 </div>
-<p id="text">Here are all the spaces where you can put their plans on your Facebook page.</p>
-<ul id="spaces" class="cobot_list"></ul>
-<script type="text/javascript" charset="utf-8">
+
+<p id="text">Here are all the spaces where you can publish their services on your Facebook page.</p>
+
+<div id="spaces"></div>
+<% content_for :js do %>
   CobotFb.renderSpaces(<%= @spaces_json %>);
-</script>
+<% end %>
+<hr>

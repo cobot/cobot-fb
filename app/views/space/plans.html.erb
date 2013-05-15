@@ -32,7 +32,7 @@
 <ul id="plans">
 </ul>
 <small id="page_link">powered by <a href="http://www.cobot.me" target="_blank">cobot.me</a></small>
-<script type="text/javascript" charset="utf-8">
+<% content_for :js  do %>
   CobotFb.renderPlans(<%= @space_json %>, <%= @plans_json %>);
-</script>
+<% end %>
 
