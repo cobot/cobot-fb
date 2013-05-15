@@ -1,7 +1,6 @@
 <html>
 <head>
   <title>Cobot plans for Facebook</title>
-  <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', 'mustache', 'pagedown.min', 'facebook', 'application', 'char-set' => 'utf-8' %>
   <%= stylesheet_link_tag :fb %>
 </head>
 <body>
@@ -15,5 +14,9 @@
       </div>
     </div>
   </div>
+  <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js', 'mustache', 'pagedown.min', 'facebook', 'application', 'char-set' => 'utf-8' %>
+  <script type="text/javascript" charset="utf-8">
+    <%= yield_content :js %>
+  </script>
 </body>
 </html>
