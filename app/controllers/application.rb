@@ -1,5 +1,5 @@
 CobotFb.controller do
-  get '/' do
+  get '/', :cache => true do
     render "application/index"
   end
 end
