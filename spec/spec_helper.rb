@@ -36,6 +36,3 @@ def stub_fb_auth
   Koala::Facebook::OAuth.stub(new: fake)
   fake
 end
-
-def stub_cobot_auth
-end
