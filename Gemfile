@@ -27,9 +27,9 @@ end
 
 group "development" do
   gem 'foreman'
-  gem 'heroku'
 end
 
 # Padrino Stable Gem
-gem 'padrino', '0.10.5'
+gem 'padrino', '0.11.1'
+gem 'tilt', '~> 1.3.0' #bundler dep resolution bug
 
