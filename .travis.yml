@@ -1,10 +1,9 @@
 language: ruby
-rvm: 
+rvm:
   - 1.9.3
 script: bundle exec rspec
 notifications:
   email: false
 env: DB=postgres
 before_script:
-  - "cp app/config/database.yml.example app/config/database.yml"
-  - "psql -c 'create database myapp_test;' -U postgres"
+  - "psql -c 'create database cobot_fb_test;' -U postgres"
