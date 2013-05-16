@@ -33,6 +33,6 @@
 </ul>
 <small id="page_link">powered by <a href="http://www.cobot.me" target="_blank">cobot.me</a></small>
 <% content_for :js  do %>
-  CobotFb.renderPlans(<%= @space_json %>, <%= @plans_json %>);
+  CobotFb.renderPlans(<%= @space_json.html_safe %>, <%= @plans_json.html_safe %>);
 <% end %>
 
