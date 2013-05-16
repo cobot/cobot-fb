@@ -598,13 +598,6 @@ a:focus {
   text-align: right;
   float: right;
 }
-@font-face {
-  font-family: 'Museo300Regular';
-  src: url('../fonts/museo_300_macroman/Museo300-Regular-webfont.eot');
-  src: url('../fonts/museo_300_macroman/Museo300-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/museo_300_macroman/Museo300-Regular-webfont.woff') format('woff'), url('../fonts/museo_300_macroman/Museo300-Regular-webfont.ttf') format('truetype'), url('../fonts/museo_300_macroman/Museo300-Regular-webfont.svg#Museo300Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 p {
   margin: 0 0 12px;
 }
@@ -677,7 +670,7 @@ h4,
 h5,
 h6 {
   margin: 12px 0;
-  font-family: Museo300Regular, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
   font-weight: bold;
   line-height: 24px;
   color: inherit;
@@ -881,7 +874,7 @@ address {
 }
 table th,
 table caption {
-  font-family: 'Museo300Regular';
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
 }
 .breadcrumb {
   font-size: 12px;
