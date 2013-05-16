@@ -13,7 +13,7 @@ describe "user opens app the first time", :type => :request do
 
       page.driver.post '/'
 
-      click_link 'Show plans on Facebook'
+      click_link 'Get started'
 
       URI.parse(current_url).to_s.should =~ %r{https://cobot.me/oauth/authorize}
     end
