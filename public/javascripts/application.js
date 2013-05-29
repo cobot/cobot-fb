@@ -30,7 +30,9 @@ var CobotFb = {
     var $plans = $('#plans'),
     planTemplate = $('#planTemplate').html();
     // welcome text
-    $('#welcome').html((new Markdown.Converter()).makeHtml(space.description));
+    if($.trim(space.description).length > 0){
+      $('#welcome').html((new Markdown.Converter()).makeHtml(space.description));
+    };
 
     var display_gross = function(){
       return space.display_price == "gross";
