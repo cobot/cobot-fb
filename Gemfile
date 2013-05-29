@@ -30,6 +30,6 @@ group "development" do
 end
 
 # Padrino Stable Gem
-gem 'padrino', '0.11.1'
+gem 'padrino', '0.11.2'
 gem 'tilt', '~> 1.3.0' #bundler dep resolution bug
 
