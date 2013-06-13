@@ -7,7 +7,6 @@ gem 'unicorn'
 
 # Project requirements
 gem 'rake'
-gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'koala'
 gem 'oauth2'
 
