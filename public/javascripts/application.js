@@ -25,7 +25,7 @@ var CobotFb = {
       $('#text').text("Seems you don't manage any coworking spaces via cobot.");
     };
   },
-  
+
   renderPlans: function(space, plans){
     var $plans = $('#plans'),
     planTemplate = $('#planTemplate').html();
@@ -57,8 +57,16 @@ var CobotFb = {
         this.cycle_costs = function(){
           return this.price_per_cycle > 0;
         };
+        this.extra_display_price = function(){
+          var price = price_to_display_price(this.price_in_cents / 100);
+          return(price);
+        };
+        this.discounts_available = function(){
+          return this.discounts.lenght > 0;
+        };
         this.display_day_pass_price = price_to_display_price(this.day_pass_price);
         this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
+
         this.url = space.url + '/users/new?plan_id='+ this.id;
         var planHtml = Mustache.to_html(planTemplate, this);
         $plans.append(planHtml);
