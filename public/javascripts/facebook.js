@@ -2,7 +2,7 @@
 window.fbAsyncInit = function() {
   // init the FB JS SDK
   FB.init({
-    appId: '108253272618609',
+    appId: '524088574325499',
     status: true,
     cookie: true,
     xfbml: false
@@ -13,7 +13,7 @@ window.fbAsyncInit = function() {
 function addToPage(space_id) {
   var obj = {
     method: 'pagetab',
-    redirect_uri: 'https://cobot-fb.herokuapp.com'
+    redirect_uri: 'http://localhost:5000'
   };
   FB.ui(obj, function(response) {
     if (response != null && response.tabs_added != null) {

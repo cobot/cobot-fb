@@ -29,8 +29,8 @@ var CobotFb = {
   renderPlans: function(space_id){
     var $plans = $('#plans');
     var planTemplate = $('#planTemplate').html();
-    var space_url = "http://www.cobot.me/api/spaces/" + space_id;
-    var plans_url = "http://" + space_id + ".cobot.me/api/plans";
+    var space_url = "//www.cobot.me/api/spaces/" + space_id;
+    var plans_url = "//" + space_id + ".cobot.me/api/plans";
 
     $.getJSON(space_url, function(space){
       // welcome text
