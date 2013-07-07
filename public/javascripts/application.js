@@ -26,13 +26,18 @@ var CobotFb = {
     };
   },
 
-  renderPlans: function(space, plans){
-    var $plans = $('#plans'),
-    planTemplate = $('#planTemplate').html();
-    // welcome text
-    if($.trim(space.description).length > 0){
-      $('#welcome').html((new Markdown.Converter()).makeHtml(space.description));
-    };
+  renderPlans: function(space_id){
+    var $plans = $('#plans');
+    var planTemplate = $('#planTemplate').html();
+    var space_url = "http://www.cobot.me/api/spaces/" + space_id;
+    var plans_url = "http://" + space_id + ".cobot.me/api/plans";
+
+    $.getJSON(space_url, function(space){
+      // welcome text
+      if($.trim(space.description).length > 0){
+        $('#welcome').html((new Markdown.Converter()).makeHtml(space.description));
+      };
+    });
 
     var display_gross = function(){
       return space.display_price == "gross";
@@ -51,29 +56,31 @@ var CobotFb = {
       }
     };
 
-    $.each(plans, function(){
-      // no hidden plans
-      if(!this.hidden){
-        this.cycle_costs = function(){
-          return this.price_per_cycle > 0;
-        };
-        this.extra_display_price = function(){
-          var price = price_to_display_price(this.price_in_cents / 100);
-          return(price);
-        };
-        this.discounts_available = function(){
-          return this.discounts.lenght > 0;
-        };
-        this.display_day_pass_price = price_to_display_price(this.day_pass_price);
-        this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
+    $.getJSON(plans_url, function(plans){
+      $.each(plans, function(){
+        // no hidden plans
+        if(!this.hidden){
+          this.cycle_costs = function(){
+            return this.price_per_cycle > 0;
+          };
+          this.extra_display_price = function(){
+            var price = price_to_display_price(this.price_in_cents / 100);
+            return(price);
+          };
+          this.discounts_available = function(){
+            return this.discounts.lenght > 0;
+          };
+          this.display_day_pass_price = price_to_display_price(this.day_pass_price);
+          this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
 
-        this.url = space.url + '/users/new?plan_id='+ this.id;
-        var planHtml = Mustache.to_html(planTemplate, this);
-        $plans.append(planHtml);
-        if(typeof yourvar != 'undefined'){
-          FB.Canvas.setSize();
+          this.url = space.url + '/users/new?plan_id='+ this.id;
+          var planHtml = Mustache.to_html(planTemplate, this);
+          $plans.append(planHtml);
+          if(typeof yourvar != 'undefined'){
+            FB.Canvas.setSize();
+          }
         }
-      }
+      });
     });
 
   }

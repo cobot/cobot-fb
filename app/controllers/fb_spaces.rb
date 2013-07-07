@@ -16,7 +16,7 @@ CobotFb.controller  do
   
   post 'spaces' do
     if session[:token]
-      Space.create!(space_id: params[:space_id],  fb_id: params[:page_id], token: session[:token])
+      Space.create!(space_id: params[:space_id],  fb_id: params[:page_id])
     else
       redirect '/auth'
     end
