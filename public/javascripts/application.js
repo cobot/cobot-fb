@@ -29,35 +29,45 @@ var CobotFb = {
   renderPlans: function(space_id){
     var $plans = $('#plans');
     var planTemplate = $('#planTemplate').html();
-    var space_url = "//www.cobot.me/api/spaces/" + space_id;
-    var plans_url = "//" + space_id + ".cobot.me/api/plans";
+    var space_url = "https://www.cobot.me/api/spaces/" + space_id;
+    var plans_url = "https://" + space_id + ".cobot.me/api/plans";
+    var plans_req = $.getJSON(plans_url);
+    var space_req = $.getJSON(space_url);
 
-    $.getJSON(space_url, function(space){
+
+    $.when(space_req)
+      .fail(function(space_error){console.log('Error getting space', space_error);})
+      .done(function(space){
       // welcome text
       if($.trim(space.description).length > 0){
         $('#welcome').html((new Markdown.Converter()).makeHtml(space.description));
       };
     });
 
-    var display_gross = function(){
-      return space.display_price == "gross";
-    };
+    $.when(space_req, plans_req)
+      .fail(function(){console.log('Error getting plans');})
+      .done(function(space_resp, plans_resp){
+      var space = space_resp[0];
+      var plans = plans_resp[0];
 
-    var gross_price = function(price){
-      var tax_multiplier = (1 + parseFloat(space.tax_rate) / 100);
-      return (Math.round(tax_multiplier * parseFloat(price)) * 100) / 100.0;
-    };
+      var display_gross = function(){
+        return space.display_price == "gross";
+      };
 
-    var price_to_display_price = function(price){
-      if(display_gross){
-        return gross_price(price);
-      } else {
-        return price;
-      }
-    };
+      var gross_price = function(price){
+        var tax_multiplier = (1 + parseFloat(space.tax_rate) / 100);
+        return (Math.round(tax_multiplier * parseFloat(price)) * 100) / 100.0;
+      };
 
-    $.getJSON(plans_url, function(plans){
+      var price_to_display_price = function(price){
+        if(display_gross){
+          return gross_price(price);
+        } else {
+          return price;
+        }
+      };
       $.each(plans, function(){
+
         // no hidden plans
         if(!this.hidden){
           this.cycle_costs = function(){
@@ -82,7 +92,6 @@ var CobotFb = {
         }
       });
     });
-
   }
 };
 
