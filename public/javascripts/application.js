@@ -66,15 +66,30 @@ var CobotFb = {
           return price;
         }
       };
+
+      var has_cycle_costs = function(plan){
+        return parseFloat(plan.price_per_cycle) > 0
+      }
+
       plans = plans.sort(function(a, b){
-      	return a.price_per_cycle > b.price_per_cycle ? b : a
+        if(has_cycle_costs(a) && has_cycle_costs(b))
+          return(parseFloat(a.price_per_cycle) > parseFloat(b.price_per_cycle) ? 1 : -1);
+        if(has_cycle_costs(a) && !has_cycle_costs(b))
+          return 1 ;
+        if(!has_cycle_costs(a)  && has_cycle_costs(b) )
+          return -1 ;
+        if(!has_cycle_costs(a) && !has_cycle_costs(b))
+          return(parseFloat(a.day_pass_price) > parseFloat(b.day_pass_price) ? 1 : -1);
+        else
+          return 0;
       })
-			$.each(plans, function(){
+
+      $.each(plans, function(){
 
         // no hidden plans
         if(!this.hidden){
           this.cycle_costs = function(){
-            return this.price_per_cycle > 0;
+            return has_cycle_costs(this);
           };
           this.extra_display_price = function(){
             var price = price_to_display_price(this.price_in_cents / 100);
@@ -89,7 +104,7 @@ var CobotFb = {
           this.url = space.url + '/users/new?plan_id='+ this.id;
           var planHtml = Mustache.to_html(planTemplate, this);
           $plans.append(planHtml);
-          if(typeof yourvar != 'undefined'){
+          if(typeof FB != 'undefined'){
             FB.Canvas.setSize();
           }
         }
