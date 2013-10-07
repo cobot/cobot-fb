@@ -66,7 +66,10 @@ var CobotFb = {
           return price;
         }
       };
-      $.each(plans, function(){
+      plans = plans.sort(function(a, b){
+      	return a.price_per_cycle > b.price_per_cycle ? b : a
+      })
+			$.each(plans, function(){
 
         // no hidden plans
         if(!this.hidden){
