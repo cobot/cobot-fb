@@ -85,7 +85,9 @@ var CobotFb = {
       })
 
       $.each(plans, function(){
-
+        this.time_passes = this.time_passes.sort(function(a, b){
+          return parseFloat(a.price_in_cents) > parseFloat(b.price_in_cents) ? 1 : -1
+        });
         // no hidden plans
         if(!this.hidden){
           this.cycle_costs = function(){
