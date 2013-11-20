@@ -26,4 +26,11 @@ CobotFb.helpers do
     space_url.match(/api\/spaces\/([\w-]+)/)[1]
   end
 
+  def render_plans(fb_page_id)
+    cache_key request.path_info + "?fb_page_id=" + fb_page_id.to_s
+    space = Space.find_by_fb_id! fb_page_id
+    @space_id =  space.space_id
+    render 'space/plans', layout: :facebook
+  end
+
 end
