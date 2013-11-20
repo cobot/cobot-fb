@@ -15,7 +15,7 @@ h2 {
   letter-spacing: -0.03em;
 }
 
-a {
+a.plan-link {
   color: #ffffff;
   cursor: pointer;
   text-decoration: none;
@@ -25,14 +25,15 @@ a {
 
 }
 
-a:hover {
-  cursor: pointer;
+a.plan-link:hover {
+  text-decoration: none;
 }
 
 #page_link{
   float: right;
 }
-#page_link a{
+
+a {
   color: #3B5998;
   cursor: pointer;
   text-decoration: none;
@@ -41,7 +42,7 @@ a:hover {
   padding: 0px;
 }
 
-#page_link a:hover {
+a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
