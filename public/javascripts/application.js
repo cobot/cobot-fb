@@ -40,7 +40,7 @@ var CobotFb = {
       .done(function(space){
       // welcome text
       if($.trim(space.description).length > 0){
-        $('#welcome').html((new Markdown.Converter()).makeHtml(space.description));
+        $('#welcome').html(markdown.toHTML(space.description));
       };
     });
 
