@@ -10,7 +10,7 @@ CobotFb.helpers do
   def oauth_client
     OAuth2::Client.new(CobotFb::Config[:cobot_app_id],
       CobotFb::Config[:cobot_app_key],
-      site: 'https://cobot.me',
+      site: 'https://www.cobot.me',
       token_url: '/oauth/access_token',
       authorize_url: '/oauth/authorize',
       raise_errors: false)
