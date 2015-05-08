@@ -2,7 +2,7 @@ CobotFb.controller  do
   get '/new' do
     if params[:code] #we just authorized us
       oauth_session = oauth_client.auth_code.get_token(params[:code], :redirect_uri => base_url)
-      session[:token] = oauth_session.token    
+      session[:token] = oauth_session.token
     end
     if session[:token]
       oauth_session = get_oauth_session(session[:token])

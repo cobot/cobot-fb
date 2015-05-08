@@ -6,6 +6,7 @@ PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 Bundler.require(:default, PADRINO_ENV)
+require 'raven'
 
 ##
 # Enable devel logging
@@ -16,6 +17,9 @@ Padrino::Logger::Config[:production] = { :log_level => :error, :stream => :stdou
 # Padrino::Logger::Config[:development] = { :log_level => :devel, :stream => :stdout }
 # Padrino::Logger.log_static = true
 #
+Raven.configure do |config|
+  config.dsn = 'https://f0f9204d5b68407aae2a8f9b298b09be:b42e23a08f894a569934df4c9265e728@app.getsentry.com/9873'
+end
 
 ##
 # Add your before load hooks here

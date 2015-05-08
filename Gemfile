@@ -9,6 +9,7 @@ gem 'unicorn'
 gem 'rake'
 gem 'koala'
 gem 'oauth2'
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 # Component requirements
 gem 'erubis'
