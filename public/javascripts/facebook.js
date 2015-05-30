@@ -5,15 +5,14 @@ window.fbAsyncInit = function() {
     appId: '108253272618609',
     status: true,
     cookie: true,
-    xfbml: false
+    version: 'v2.0'
   });
   FB.Canvas.setSize();
 };
 
 function addToPage(space_id) {
   var obj = {
-    method: 'pagetab',
-    redirect_uri: 'https://cobot-fb.herokuapp.com'
+    method: 'pagetab'
   };
   FB.ui(obj, function(response) {
     if (response != null && response.tabs_added != null) {
