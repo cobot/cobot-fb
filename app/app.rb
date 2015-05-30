@@ -35,8 +35,8 @@ class CobotFb < Padrino::Application
   # disable :sessions             # Disabled sessions by default (enable if needed)
   # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
   # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
-  # set :protection, :except => :frame_options #disable x-frame option
-  disable :protection
+  set :protection, :except => [:frame_options, :xss_header] #disable x-frame option and xss protection that renders the callback from facebook useless in chrome
+
   ##
   # You can configure for a specified environment like:
   #
