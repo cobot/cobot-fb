@@ -51,7 +51,7 @@ var CobotFb = {
       var plans = plans_resp[0];
 
       var display_gross = function(){
-        return space.display_price == "gross";
+        return space.price_display == "gross";
       };
 
       var gross_price = function(price){
@@ -60,7 +60,7 @@ var CobotFb = {
       };
 
       var price_to_display_price = function(price){
-        if(display_gross){
+        if(display_gross()){
           return gross_price(price);
         } else {
           return price;
