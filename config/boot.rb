@@ -12,7 +12,7 @@ require 'raven'
 # Enable devel logging
 Padrino::Logger::Config[:development] = { :log_level => :debug, :stream => :to_file }
 Padrino::Logger::Config[:test] = { :log_level => :debug, :stream => :to_file }
-Padrino::Logger::Config[:production] = { :log_level => :error, :stream => :stdout }
+Padrino::Logger::Config[:production] = { :log_level => :debug, :stream => :stdout }
 #
 # Padrino::Logger::Config[:development] = { :log_level => :devel, :stream => :stdout }
 # Padrino::Logger.log_static = true

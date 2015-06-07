@@ -1,4 +1,3 @@
-require 'raven'
 
 class CobotFb < Padrino::Application
   register Padrino::Rendering
