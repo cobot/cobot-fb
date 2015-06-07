@@ -8,7 +8,8 @@
     {{#cycle_costs}}
       <p class="price">{{display_price_per_cycle}} {{currency}} for {{cycle_duration}} Month
         {{#time_passes}}
-        </br/><span class="sessions">
+        <br />
+        <span class="sessions">
           {{#included_per_timespan}}
             {{included_per_timespan}} {{name}} sessions included per {{included_timespan}}.<br />
           {{/included_per_timespan}}
@@ -30,10 +31,7 @@
 </div>
 
 <p id="welcome"></p>
-<ul id="plans">
+<ul id="plans" data-space-id="<%= @space_id %>" >
 </ul>
 <small id="page_link">powered by <a href="http://www.cobot.me" target="_blank">cobot.me</a></small>
-<% content_for :js  do %>
-  CobotFb.renderPlans('<%= @space_id %>');
-<% end %>
 
