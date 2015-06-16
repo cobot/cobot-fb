@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe "user opens app the first time", :type => :request do
+describe "user opens app the first time", type: :request do
   before(:each) do
     @fb_auth = stub_fb_auth
     @fb_request_params = {'page' => {'id' => '123'}}
     @fb_auth.stub(parse_signed_request: @fb_request_params)
   end
 
-  describe "page is not yet know for space" do
+  describe "page is not yet know for space", type: :feature do
     it "displays the auth link for the page admin and redirects to auth" do
       @fb_request_params['page']['admin'] = true
 
@@ -27,7 +27,7 @@ describe "user opens app the first time", :type => :request do
     end
   end
 
-  describe "Page is know", :js => true do
+  describe "Page is know", type: :feature, js: true do
     before(:each) do
       Space.create! space_id: 'test', fb_id: "123", token: 't0k3n'
       WebMock.disable_net_connect!(allow_localhost: true)
