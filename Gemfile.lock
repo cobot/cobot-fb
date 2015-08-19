@@ -45,12 +45,12 @@ GEM
     i18n (0.7.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
-    kgio (2.8.0)
+    kgio (2.9.3)
     koala (2.0.0)
       addressable
       faraday
       multi_json
-    launchy (2.3.0)
+    launchy (2.4.3)
       addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -98,12 +98,12 @@ GEM
       padrino-core (= 0.11.4)
     pg (0.15.1)
     polyglot (0.3.5)
-    rack (1.6.1)
+    rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    raindrops (0.11.0)
+    raindrops (0.15.0)
     rake (10.0.4)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
@@ -123,7 +123,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    unicorn (4.6.2)
+    unicorn (4.9.0)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
