@@ -47,13 +47,5 @@ describe "user opens app the first time", type: :request do
 
       page.should have_content 'My Plan'
     end
-
-    it "don't show hidden plans" do
-      @plan_hash.merge!(name: 'Hidden Plan', hidden: true)
-      stub_plans_response_for_space('test', [@plan_hash])
-
-      fake_fb_post
-      page.should_not have_content 'Hidden Plan</h3>'
-    end
   end
 end

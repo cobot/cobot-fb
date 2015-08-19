@@ -15,7 +15,7 @@ var CobotFb = {
       // welcome text
       if($.trim(space.description).length > 0){
         $('#welcome').html(markdown.toHTML(space.description));
-      };
+      }
     });
 
     $.when(space_req, plans_req)
@@ -42,47 +42,31 @@ var CobotFb = {
       };
 
       var has_cycle_costs = function(plan){
-        return parseFloat(plan.price_per_cycle) > 0
-      }
-
-      plans = plans.sort(function(a, b){
-        if(has_cycle_costs(a) && has_cycle_costs(b))
-          return(parseFloat(a.price_per_cycle) > parseFloat(b.price_per_cycle) ? 1 : -1);
-        if(has_cycle_costs(a) && !has_cycle_costs(b))
-          return 1 ;
-        if(!has_cycle_costs(a)  && has_cycle_costs(b) )
-          return -1 ;
-        if(!has_cycle_costs(a) && !has_cycle_costs(b))
-          return(parseFloat(a.day_pass_price) > parseFloat(b.day_pass_price) ? 1 : -1);
-        else
-          return 0;
-      })
+        return parseFloat(plan.price_per_cycle) > 0;
+      };
 
       $.each(plans, function(){
         this.time_passes = this.time_passes.sort(function(a, b){
-          return parseFloat(a.price_in_cents) > parseFloat(b.price_in_cents) ? 1 : -1
+          return parseFloat(a.price_in_cents) > parseFloat(b.price_in_cents) ? 1 : -1;
         });
-        // no hidden plans
-        if(!this.hidden){
-          this.cycle_costs = function(){
-            return has_cycle_costs(this);
-          };
-          this.extra_display_price = function(){
-            var price = price_to_display_price(this.price_in_cents / 100);
-            return(price);
-          };
-          this.discounts_available = function(){
-            return this.discounts.lenght > 0;
-          };
-          this.display_day_pass_price = price_to_display_price(this.day_pass_price);
-          this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
+        this.cycle_costs = function(){
+          return has_cycle_costs(this);
+        };
+        this.extra_display_price = function(){
+          var price = price_to_display_price(this.price_in_cents / 100);
+          return(price);
+        };
+        this.discounts_available = function(){
+          return this.discounts.lenght > 0;
+        };
+        this.display_day_pass_price = price_to_display_price(this.day_pass_price);
+        this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
 
-          this.url = space.url + '/users/new?plan_id='+ this.id;
-          var planHtml = Mustache.to_html(planTemplate, this);
-          $plans.append(planHtml);
-          if(typeof FB != 'undefined'){
-            FB.Canvas.setSize();
-          }
+        this.url = space.url + '/users/new?plan_id='+ this.id;
+        var planHtml = Mustache.to_html(planTemplate, this);
+        $plans.append(planHtml);
+        if(typeof FB != 'undefined'){
+          FB.Canvas.setSize();
         }
       });
     });
