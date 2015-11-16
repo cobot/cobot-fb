@@ -14,7 +14,7 @@ var CobotFb = {
       .done(function(space){
       // welcome text
       if($.trim(space.description).length > 0){
-        $('#welcome').html(markdown.toHTML(space.description));
+        $('#welcome').html(marked(space.description));
       }
     });
 
