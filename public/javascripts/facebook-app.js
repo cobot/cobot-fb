@@ -59,6 +59,9 @@ var CobotFb = {
         this.discounts_available = function(){
           return this.discounts.lenght > 0;
         };
+        this.html_description = function(){
+          return marked(this.description);
+        };
         this.display_day_pass_price = price_to_display_price(this.day_pass_price);
         this.display_price_per_cycle = price_to_display_price(this.price_per_cycle);
 

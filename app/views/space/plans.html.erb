@@ -1,9 +1,9 @@
 <div id="planTemplate" style="display:none">
   <li class="plan">
     <h2 class="plan-name">{{name}}</h2>
-    <p class="plan-description">
-      {{description}}
-    </p>
+    <div class="plan-description">
+      {{{html_description}}}
+    </div>
 
     {{#cycle_costs}}
       <p class="price">{{display_price_per_cycle}} {{currency}} for {{cycle_duration}} Month
