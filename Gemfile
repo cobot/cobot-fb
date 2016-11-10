@@ -20,6 +20,7 @@ gem 'pg'
 group "test" do
   gem 'rspec'
   gem 'rack-test', :require => "rack/test"
+  gem 'poltergeist'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'

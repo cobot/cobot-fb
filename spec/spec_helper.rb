@@ -5,6 +5,8 @@ require 'database_cleaner'
 require 'webmock/rspec'
 # in spec/support/ and its subdirectories.
 Dir[File.dirname(__FILE__) + ("/support/**/*.rb")].each {|f| require f}
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 Capybara.app = CobotFb
 
