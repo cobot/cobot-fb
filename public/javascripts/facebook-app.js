@@ -8,9 +8,8 @@ var CobotFb = {
     var plans_req = $.getJSON(plans_url);
     var space_req = $.getJSON(space_url);
 
-
     $.when(space_req)
-      .fail(function(space_error){console.log('Error getting space', space_error);})
+      .fail(function(space_error){console.log('Error getting space', JSON.stringify(space_error));})
       .done(function(space){
       // welcome text
       if($.trim(space.description).length > 0){
@@ -19,7 +18,7 @@ var CobotFb = {
     });
 
     $.when(space_req, plans_req)
-      .fail(function(){console.log('Error getting plans');})
+      .fail(function(plans_error){console.log('Error getting plans', JSON.stringify(plans_error));})
       .done(function(space_resp, plans_resp){
       var space = space_resp[0];
       var plans = plans_resp[0];

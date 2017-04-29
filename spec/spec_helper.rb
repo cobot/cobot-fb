@@ -1,14 +1,18 @@
-PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
+RACK_ENV = 'test' unless defined?(RACK_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'webmock/rspec'
+require 'capybara/poltergeist'
+require 'billy/capybara/rspec'
+
 # in spec/support/ and its subdirectories.
 Dir[File.dirname(__FILE__) + ("/support/**/*.rb")].each {|f| require f}
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
 
-Capybara.app = CobotFb
+Capybara.javascript_driver = :poltergeist_billy
+
+
+Capybara.app = CobotFb.tap { |app|  }
 
 
 # Capybara.configure do |config|
@@ -33,10 +37,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-end
-
-def app
-  CobotFb.tap { |app|  }
 end
 
 def stub_fb_auth

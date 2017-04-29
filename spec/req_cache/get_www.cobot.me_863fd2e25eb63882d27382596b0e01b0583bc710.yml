@@ -1,0 +1,14 @@
+---
+:scope: 
+:url: http://www.cobot.me/api/spaces/test
+:body: ''
+:status: 301
+:method: get
+:headers:
+  Server: nginx/1.4.6 (Ubuntu)
+  Date: Sat, 29 Apr 2017 07:38:13 GMT
+  Content-Type: text/html
+  Transfer-Encoding: chunked
+  Connection: close
+  Location: https://www.cobot.me/api/spaces/test
+:content: ''
