@@ -7,40 +7,29 @@ describe "user opens app the first time", type: :request do
     @fb_auth.stub(parse_signed_request: @fb_request_params)
   end
 
-  describe "page is not yet know for space", type: :feature do
+  describe "from the app start page", type: :feature do
     it "displays the auth link for the page admin and redirects to auth" do
-      @fb_request_params['page']['admin'] = true
+      visit '/'
 
-      page.driver.post '/'
+      click_link 'Get Started'
 
-      click_link 'Get started'
-
-      URI.parse(current_url).to_s.should =~ %r{https://cobot.me/oauth/authorize}
-    end
-
-    it "it displays apology to visitors" do
-      @fb_request_params['page']['admin'] = false
-
-      page.driver.post '/'
-
-      page.should have_content 'Sorry'
+      URI.parse(current_url).to_s.should =~ %r{https://www.cobot.me/oauth/authorize}
     end
   end
 
-  describe "Page is know", type: :feature, js: true do
+  describe "after it is setup on facebook", type: :feature, js: true do
     before(:each) do
       Space.create! space_id: 'test', fb_id: "123", token: 't0k3n'
-      WebMock.disable_net_connect!(allow_localhost: true)
+      WebMock.allow_net_connect!
+    end
+
+    it "shows the plans" do
       stub_space_response('test')
-      @plan_hash = {name: "basic", price_per_cycle: "100.0", cycle_duration: 1,
+      @plan_hash = {name: "My Plan", price_per_cycle: "100.0", cycle_duration: 1,
         currency: "EUR", description: "basic plan",
         day_pass_price: "10.0", cancellation_period: 30, hidden: false,
         time_passes: []
       }
-    end
-
-    it "shows the plans" do
-      @plan_hash[:name] = 'My Plan'
       stub_plans_response_for_space('test', [@plan_hash])
 
       fake_fb_post

@@ -1,0 +1,36 @@
+---
+:scope: 
+:url: https://www.facebook.com/connect/ping?client_id=108253272618609&domain=127.0.0.1&origin=1&redirect_uri=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2F87XNE1PC38r.js%3Fversion%3D42%23cb%3Df31d1261e%26domain%3D127.0.0.1%26origin%3Dhttp%253A%252F%252F127.0.0.1%253A58482%252Ffe5726e18%26relation%3Dparent&response_type=token%2Csigned_request%2Ccode&sdk=joey
+:body: ''
+:status: 200
+:method: get
+:headers:
+  X-XSS-Protection: '0'
+  public-key-pins-report-only: max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=";
+    pin-sha256="r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E="; pin-sha256="q4PO2G2cbkZhZ82+JgmRUyGMoAeozA+BSXVXQWB8XWQ=";
+    report-uri="http://reports.fb.com/hpkp/"
+  Pragma: no-cache
+  content-security-policy: 'default-src * data: blob:;script-src *.facebook.com *.fbcdn.net
+    *.facebook.net *.google-analytics.com *.virtualearth.net *.google.com 127.0.0.1:*
+    *.spotilocal.com:* ''unsafe-inline'' ''unsafe-eval'' fbstatic-a.akamaihd.net fbcdn-static-b-a.akamaihd.net
+    *.atlassolutions.com blob: data: ''self'' *.m-freeway.com;style-src data: blob:
+    ''unsafe-inline'' *;connect-src *.facebook.com *.fbcdn.net *.facebook.net *.spotilocal.com:*
+    *.akamaihd.net wss://*.facebook.com:* https://fb.scanandcleanlocal.com:* *.atlassolutions.com
+    attachment.fbsbx.com ws://localhost:* blob: *.cdninstagram.com ''self'';'
+  Cache-Control: private, no-cache, no-store, must-revalidate
+  Strict-Transport-Security: max-age=15552000; preload
+  X-Content-Type-Options: nosniff
+  Expires: Sat, 01 Jan 2000 00:00:00 GMT
+  Vary: Accept-Encoding
+  Content-Encoding: gzip
+  Content-Type: text/html
+  X-FB-Debug: RzV1DHmGVoib9k+bHwzNWlLJRnFz547o4fT12VgOMC7iZk2NazEwEjqxRXDIA/rDjOefI3m27LrwerEC7yyapw==
+  Date: Sat, 29 Apr 2017 07:37:38 GMT
+  Connection: close
+:content: '<div><span>Can&#039;t Load URL: The domain of this URL isn&#039;t included
+  in the app&#039;s domains. To be able to load this URL, add all domains and subdomains
+  of your app to the App Domains field in your app settings.</span><script>if (typeof
+  console !=="undefined" && console.log) console.log("Can''t Load URL: The domain
+  of this URL isn''t included in the app''s domains. To be able to load this URL,
+  add all domains and subdomains of your app to the App Domains field in your app
+  settings.");</script></div>'

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.2.7'
 
 # Server requirements (defaults to WEBrick)
 gem 'unicorn'
@@ -13,7 +13,7 @@ gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 # Component requirements
 gem 'erubis'
-gem 'activerecord', :require => "active_record"
+gem 'activerecord', '~> 4.0', :require => "active_record"
 gem 'pg'
 
 # Test requirements
@@ -25,6 +25,8 @@ group "test" do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'webmock'
+  gem 'puffing-billy'
+  gem 'em-http-request', '1.1.3'
 end
 
 group "development" do
@@ -32,6 +34,6 @@ group "development" do
 end
 
 # Padrino Stable Gem
-gem 'padrino', '0.11.4'
+gem 'padrino', '0.12.5'
 gem 'tilt'
 
