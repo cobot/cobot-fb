@@ -7,3 +7,4 @@ database.yml
 .rvmrc
 capybara-*
 .env
+.ruby-version
