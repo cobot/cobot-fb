@@ -11,6 +11,7 @@ var CobotFb = {
       method: 'pagetab'
     };
     FB.ui(obj, function(response) {
+
       if (response != null && response.tabs_added != null) {
         console.log(response);
         $.each(response.tabs_added, function(page_id) {
@@ -18,6 +19,7 @@ var CobotFb = {
             window.open('https://www.facebook.com/pages/random/'+page_id+'?v=app_108253272618609','_blank');
           });
         });
+        alert("Tab was successfully added to your page");
       }
     });
   },
