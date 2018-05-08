@@ -31,7 +31,6 @@ class CobotFb < Padrino::Application
   # set :reload, false            # Reload application files (default in development)
   # set :default_builder, "foo"   # Set a custom form builder (default 'StandardFormBuilder')
   # set :locale_path, "bar"       # Set path for I18n translations (default your_app/locales)
-  # disable :sessions             # Disabled sessions by default (enable if needed)
   # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
   # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
   set :protection, :except => [:frame_options, :xss_header] #disable x-frame option and xss protection that renders the callback from facebook useless in chrome
@@ -63,12 +62,12 @@ class CobotFb < Padrino::Application
       cobot_app_id: ENV['COBOT_APP_ID'],
       cobot_app_key: ENV['COBOT_APP_KEY']
     }
-    
+
     def self.[](key)
       @config[key.to_sym]
     end
   end
-  
-  
+
+
 end
 
