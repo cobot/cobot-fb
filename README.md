@@ -1,3 +1,7 @@
+# DISCONTINUED
+
+Facebook does not allow pages with less than 4000 like to add tabs anymore, which makes this app obsolete for most of our customers. The current version keeps the service running for those who have installed it in the past already.
+
 # Info
 
 A application to show plans in facebook so that potential coworkers can see the services and prices the space offers on the facebook page.
