@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.7'
+ruby '2.4.6'
 
 # Server requirements (defaults to WEBrick)
 gem 'unicorn'
