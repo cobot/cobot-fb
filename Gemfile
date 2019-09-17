@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.4.7'
 
@@ -6,35 +8,35 @@ gem 'unicorn'
 # gem 'mongrel'
 
 # Project requirements
-gem 'rake'
 gem 'koala'
+gem 'nokogiri', '>= 1.10.4'
 gem 'oauth2'
-gem "sentry-raven"
-gem "nokogiri", ">= 1.10.4"
+gem 'rack', '>= 1.6.11'
+gem 'rake'
+gem 'sentry-raven'
 
 # Component requirements
+gem 'activerecord', '~> 4.0', require: 'active_record'
 gem 'erubis'
-gem 'activerecord', '~> 4.0', :require => "active_record"
 gem 'pg'
 
 # Test requirements
-group "test" do
-  gem 'rspec'
-  gem 'rack-test', :require => "rack/test"
-  gem 'poltergeist'
+group 'test' do
   gem 'capybara'
-  gem 'launchy'
   gem 'database_cleaner'
-  gem 'webmock'
-  gem 'puffing-billy'
   gem 'em-http-request', '1.1.3'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'puffing-billy'
+  gem 'rack-test', require: 'rack/test'
+  gem 'rspec'
+  gem 'webmock'
 end
 
-group "development" do
+group 'development' do
   gem 'foreman'
 end
 
 # Padrino Stable Gem
-gem 'padrino', '0.12.5'
+gem 'padrino', '0.12.9'
 gem 'tilt'
-
