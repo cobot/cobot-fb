@@ -1,5 +1,11 @@
 
 class CobotFb < Padrino::Application
+  unless RACK_ENV == 'development' || RACK_ENV == 'test'
+    before do
+      redirect request.url.sub('http', 'https') unless request.secure?
+    end
+  end
+
   register Padrino::Rendering
   # register Padrino::Mailer
   register Padrino::Helpers
