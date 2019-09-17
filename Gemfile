@@ -10,6 +10,7 @@ gem 'rake'
 gem 'koala'
 gem 'oauth2'
 gem "sentry-raven"
+gem "nokogiri", ">= 1.10.4"
 
 # Component requirements
 gem 'erubis'

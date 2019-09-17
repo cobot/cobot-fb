@@ -68,14 +68,14 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_mime (1.0.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.10.1)
     moneta (0.7.20)
     multi_json (1.12.1)
     multi_xml (0.5.3)
     multipart-post (2.0.0)
-    nokogiri (1.8.2)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
     oauth2 (0.9.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -189,6 +189,7 @@ DEPENDENCIES
   foreman
   koala
   launchy
+  nokogiri (>= 1.10.4)
   oauth2
   padrino (= 0.12.5)
   pg
