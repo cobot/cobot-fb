@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.4.7'
+ruby '2.4.9'
 
 # Server requirements (defaults to WEBrick)
 gem 'unicorn'
@@ -18,7 +18,7 @@ gem 'sentry-raven'
 # Component requirements
 gem 'activerecord', '~> 4.0', require: 'active_record'
 gem 'erubis'
-gem 'pg'
+gem 'pg', "0.21"
 
 # Test requirements
 group 'test' do

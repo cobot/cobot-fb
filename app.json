@@ -1,17 +1,10 @@
 {
-  "name": "Cobot Facebook Plans",
-  "env": {
-    "RACK_ENV": "production"
-  },
-  "addons": [
-    "heroku-postgresql:hobby-dev"
-  ],
   "environments": {
     "review": {
       "formation": {
         "web": {
           "quantity": 1,
-          "size": "free"
+          "size": "hobby"
         }
       },
       "addons": [
