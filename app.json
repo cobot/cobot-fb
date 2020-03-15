@@ -1,0 +1,15 @@
+{
+  "environments": {
+    "review": {
+      "formation": {
+        "web": {
+          "quantity": 1,
+          "size": "hobby"
+        }
+      },
+      "addons": [
+        "heroku-postgresql:hobby-dev"
+      ]
+    }
+  }
+}
